@@ -17,55 +17,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include QMK_KEYBOARD_H
 
 
-
-// Send delete when pressing shift + backspace
-const key_override_t delete_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_BSPC, KC_DEL);
-
-// Shift + bracket still produces bracket 
-const key_override_t L_bracket_override = ko_make_basic(MOD_MASK_SHIFT, KC_LBRACKET, LSFT(KC_LBRACKET));
-const key_override_t R_bracket_override = ko_make_basic(MOD_MASK_SHIFT, KC_RBRACKET, LSFT(KC_RBRACKET));
-
-// Alt+ number functions as Win+number 
-const key_override_t alt_key_override1 = ko_make_basic(MOD_MASK_ALT, KC_1, LGUI(1));
-const key_override_t alt_key_override2 = ko_make_basic(MOD_MASK_ALT, KC_2, LGUI(2));
-const key_override_t alt_key_override3 = ko_make_basic(MOD_MASK_ALT, KC_3, LGUI(3));
-const key_override_t alt_key_override4 = ko_make_basic(MOD_MASK_ALT, KC_4, LGUI(4));
-const key_override_t alt_key_override5 = ko_make_basic(MOD_MASK_ALT, KC_5, LGUI(5));
-const key_override_t alt_key_override6 = ko_make_basic(MOD_MASK_ALT, KC_6, LGUI(6));
-const key_override_t alt_key_override7 = ko_make_basic(MOD_MASK_ALT, KC_7, LGUI(7));
-const key_override_t alt_key_override8 = ko_make_basic(MOD_MASK_ALT, KC_8, LGUI(8));
-const key_override_t alt_key_override9 = ko_make_basic(MOD_MASK_ALT, KC_9, LGUI(9));
-
-
-// This globally defines all key overrides to be used
-const key_override_t **key_overrides = (const key_override_t *[]){
-    &delete_key_override,
-    
-    &L_bracket_override,
-    &R_bracket_override,
-    
-    &alt_key_override1,
-    &alt_key_override2,
-    &alt_key_override3,
-    &alt_key_override4,
-    &alt_key_override5,
-    &alt_key_override6,
-    &alt_key_override7,
-    &alt_key_override8,
-    &alt_key_override9,
- 
-    
-    NULL // Null terminate the array of overrides!
-};
-
-
-
-
-
-
-
-
-
 // Each layer gets a name for readability, which is then used in the keymap matrix below.
 // The underscores don't mean anything - you can have a layer called STUFF or any other name.
 // Layer names don't all need to be of the same length, obviously, and you can also skip them

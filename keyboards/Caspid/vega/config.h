@@ -36,21 +36,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //#define MATRIX_HAS_GHOST
 
 /* Set 0 if debouncing isn't needed */
-#define DEBOUNCE    3
-
-/* New additions */
-#define USB_POLLING_INTERVAL_MS 1 /* 1000 Hz polling rate */
-#define QMK_KEYS_PER_SCAN 12
-#undef LOCKING_SUPPORT_ENABLE /* disables lock key functionality */
-#undef LOCKING_RESYNC_ENABLE
-#define NO_MUSIC_MODE /* disables sound output to a speaker */
-#define LAYER_STATE_8BIT /* limits to 8 layers */
-#define TAPPING_TERM 120 /* default 200 wasn't allowing for quick copy paste */
+#define DEBOUNCE    5
 
 /* Mechanical locking support. Use KC_LCAP, KC_LNUM or KC_LSCR instead in keymap */
-/* #define LOCKING_SUPPORT_ENABLE */
+#define LOCKING_SUPPORT_ENABLE
 /* Locking resynchronize hack */
-/* #define LOCKING_RESYNC_ENABLE  */
+#define LOCKING_RESYNC_ENABLE
 
 
 /*
