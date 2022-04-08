@@ -26,15 +26,22 @@ const key_override_t L_bracket_override = ko_make_basic(MOD_MASK_SHIFT, KC_LBRAC
 const key_override_t R_bracket_override = ko_make_basic(MOD_MASK_SHIFT, KC_RBRACKET, LSFT(KC_RBRACKET));
 
 // Alt+ number functions as Win+number 
-const key_override_t alt_key_override1 = ko_make_basic(MOD_MASK_ALT, KC_1, LGUI(1));
-const key_override_t alt_key_override2 = ko_make_basic(MOD_MASK_ALT, KC_2, LGUI(2));
-const key_override_t alt_key_override3 = ko_make_basic(MOD_MASK_ALT, KC_3, LGUI(3));
-const key_override_t alt_key_override4 = ko_make_basic(MOD_MASK_ALT, KC_4, LGUI(4));
-const key_override_t alt_key_override5 = ko_make_basic(MOD_MASK_ALT, KC_5, LGUI(5));
-const key_override_t alt_key_override6 = ko_make_basic(MOD_MASK_ALT, KC_6, LGUI(6));
-const key_override_t alt_key_override7 = ko_make_basic(MOD_MASK_ALT, KC_7, LGUI(7));
-const key_override_t alt_key_override8 = ko_make_basic(MOD_MASK_ALT, KC_8, LGUI(8));
-const key_override_t alt_key_override9 = ko_make_basic(MOD_MASK_ALT, KC_9, LGUI(9));
+const key_override_t alt_key_override1 = ko_make_basic(MOD_MASK_ALT, KC_1, LGUI(KC_1));
+const key_override_t alt_key_override2 = ko_make_basic(MOD_MASK_ALT, KC_2, LGUI(KC_2));
+const key_override_t alt_key_override3 = ko_make_basic(MOD_MASK_ALT, KC_3, LGUI(KC_3));
+const key_override_t alt_key_override4 = ko_make_basic(MOD_MASK_ALT, KC_4, LGUI(KC_4));
+const key_override_t alt_key_override5 = ko_make_basic(MOD_MASK_ALT, KC_5, LGUI(KC_5));
+const key_override_t alt_key_override6 = ko_make_basic(MOD_MASK_ALT, KC_6, LGUI(KC_6));
+const key_override_t alt_key_override7 = ko_make_basic(MOD_MASK_ALT, KC_7, LGUI(KC_7));
+const key_override_t alt_key_override8 = ko_make_basic(MOD_MASK_ALT, KC_8, LGUI(KC_8));
+const key_override_t alt_key_override9 = ko_make_basic(MOD_MASK_ALT, KC_9, LGUI(KC_9));
+
+// Unicode keys
+// ≤ 
+U+2264
+
+
+
 
 
 // This globally defines all key overrides to be used
@@ -60,6 +67,29 @@ const key_override_t **key_overrides = (const key_override_t *[]){
 
 
 
+// Tap Dance declarations
+enum {
+    TD_COLEMAK,
+};
+
+// Tap Dance definitions
+qk_tap_dance_action_t tap_dance_actions[] = {
+    // Tap once for Rctrl, twice for Colemak
+    [TD_COLEMAK] = ACTION_TAP_DANCE_DOUBLE(KC_RCTRL, *** GO TO LAYER),
+};
+
+// Add tap dance item to your keymap in place of a keycode
+const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
+    // ...
+    TD(TD_COLEMAK)
+    // ...
+};
+
+
+
+
+
+	
 
 
 

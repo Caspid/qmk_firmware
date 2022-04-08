@@ -25,10 +25,12 @@ MOUSEKEY_ENABLE = no       # Mouse keys
 
 # New additions
 DEBOUNCE_TYPE = sym_eager_pk
-LTO_ENABLE = yes
 KEY_OVERRIDE_ENABLE = yes
-MUSIC_ENABLE = no
 UNICODE_ENABLE = yes
 KEY_OVERRIDE_ENABLE = yes 
 VIA_ENABLE = yes
+LEADER_ENABLE = yes
+TAP_DANCE_ENABLE = yes 
 
+LTO_ENABLE = yes 	# Decreases firmware size 
+MUSIC_ENABLE = no
