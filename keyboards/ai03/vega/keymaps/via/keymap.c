@@ -19,47 +19,153 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 
 // Send delete when pressing shift + backspace
-const key_override_t delete_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_BSPC, KC_DEL);
+// const key_override_t delete_key_override = ko_make_basic(MOD_MASK_SHIFT, KC_BSPC, KC_DEL);
+
+// L+R shift = CapsLock
+// const key_override_t shifts_capslock = ko_make_basic(KC_LSHIFT, KC_RSHIFT, KC_CAPSLOCK);
 
 // Shift + bracket still produces bracket 
-const key_override_t L_bracket_override = ko_make_basic(MOD_MASK_SHIFT, KC_LBRACKET, LSFT(KC_LBRACKET));
-const key_override_t R_bracket_override = ko_make_basic(MOD_MASK_SHIFT, KC_RBRACKET, LSFT(KC_RBRACKET));
+// const key_override_t L_bracket_override = ko_make_basic(MOD_MASK_SHIFT, KC_LBRACKET, LSFT(KC_LBRACKET));
+// const key_override_t R_bracket_override = ko_make_basic(MOD_MASK_SHIFT, KC_RBRACKET, LSFT(KC_RBRACKET));
 
 // Alt+ number functions as Win+number 
-const key_override_t alt_key_override1 = ko_make_basic(MOD_MASK_ALT, KC_1, LGUI(KC_1));
-const key_override_t alt_key_override2 = ko_make_basic(MOD_MASK_ALT, KC_2, LGUI(KC_2));
-const key_override_t alt_key_override3 = ko_make_basic(MOD_MASK_ALT, KC_3, LGUI(KC_3));
-const key_override_t alt_key_override4 = ko_make_basic(MOD_MASK_ALT, KC_4, LGUI(KC_4));
-const key_override_t alt_key_override5 = ko_make_basic(MOD_MASK_ALT, KC_5, LGUI(KC_5));
-const key_override_t alt_key_override6 = ko_make_basic(MOD_MASK_ALT, KC_6, LGUI(KC_6));
-const key_override_t alt_key_override7 = ko_make_basic(MOD_MASK_ALT, KC_7, LGUI(KC_7));
-const key_override_t alt_key_override8 = ko_make_basic(MOD_MASK_ALT, KC_8, LGUI(KC_8));
-const key_override_t alt_key_override9 = ko_make_basic(MOD_MASK_ALT, KC_9, LGUI(KC_9));
+// const key_override_t alt_key_override1 = ko_make_basic(MOD_MASK_ALT, KC_1, LGUI(KC_1));
+// const key_override_t alt_key_override2 = ko_make_basic(MOD_MASK_ALT, KC_2, LGUI(KC_2));
+// const key_override_t alt_key_override3 = ko_make_basic(MOD_MASK_ALT, KC_3, LGUI(KC_3));
+// const key_override_t alt_key_override4 = ko_make_basic(MOD_MASK_ALT, KC_4, LGUI(KC_4));
+// const key_override_t alt_key_override5 = ko_make_basic(MOD_MASK_ALT, KC_5, LGUI(KC_5));
+// const key_override_t alt_key_override6 = ko_make_basic(MOD_MASK_ALT, KC_6, LGUI(KC_6));
+// const key_override_t alt_key_override7 = ko_make_basic(MOD_MASK_ALT, KC_7, LGUI(KC_7));
+// const key_override_t alt_key_override8 = ko_make_basic(MOD_MASK_ALT, KC_8, LGUI(KC_8));
+// const key_override_t alt_key_override9 = ko_make_basic(MOD_MASK_ALT, KC_9, LGUI(KC_9));
 
 // Unicode keys
 // ≤ 
-U+2264
+// U+2264
 
 
 
+
+
+// Colemak test
+//
+//		// Define a type for as many tap dance states as you need
+//		typedef enum {
+//		    TD_NONE,
+//		    TD_UNKNOWN,
+//		    TD_SINGLE_TAP,
+//		    TD_SINGLE_HOLD,
+//		    TD_DOUBLE_TAP,
+//		    TD_TRIPLE_TAP,
+//		} td_state_t;
+//
+//		typedef struct {
+//		    bool is_press_action;
+//		    td_state_t state;
+//		} td_tap_t;
+//
+//		enum {
+//		    COLEMAK_LAYR, // Our custom tap dance key; add any other tap dance keys to this enum 
+//		};
+//
+//		// Declare the functions to be used with your tap dance key(s)
+//
+//		// Function associated with all tap dances
+//		td_state_t cur_dance(qk_tap_dance_state_t *state);
+//
+//		// Functions associated with individual tap dances
+//		void ql_finished(qk_tap_dance_state_t *state, void *user_data);
+//		void ql_reset(qk_tap_dance_state_t *state, void *user_data);
+//
+//
+//
+//
+//		// Determine the current tap dance state
+//		td_state_t cur_dance(qk_tap_dance_state_t *state) {
+//		    if (state->count == 1) {
+//			   if (!state->pressed) return TD_SINGLE_TAP;
+//			   else return TD_SINGLE_HOLD;
+//		    } else if (state->count == 3) return TD_TRIPLE_TAP;
+//		    else return TD_UNKNOWN;
+//		}
+//
+//		// Initialize tap structure associated with example tap dance key
+//		static td_tap_t ql_tap_state = {
+//		    .is_press_action = true,
+//		    .state = TD_NONE
+//		};
+//
+//		// Functions that control what our tap dance key does
+//		void ql_finished(qk_tap_dance_state_t *state, void *user_data) {
+//		    ql_tap_state.state = cur_dance(state);
+//		    switch (ql_tap_state.state) {
+//			   case TD_SINGLE_TAP:
+//				  tap_code(KC_LALT);
+//				  break;
+////			   case TD_SINGLE_HOLD:
+////				  layer_on(_MY_LAYER);
+////				  break;
+//			   case TD_TRIPLE_TAP:
+//				  // Check to see if the layer is already set
+//				  if (layer_state_is(_COLEMAK)) {
+//					 // If already set, then switch it off
+//					 layer_off(_COLEMAK);
+//				  } else {
+//					 // If not already set, then switch the layer on
+//					 layer_on(_COLEMAK);
+//				  }
+//				  break;
+//			   default:
+//				  break;
+//		    }
+//		}
+//
+////		void ql_reset(qk_tap_dance_state_t *state, void *user_data) {
+////		    // If the key was held down and now is released then switch off the layer
+////		    if (ql_tap_state.state == TD_SINGLE_HOLD) {
+////			   layer_off(_COLEMAK);
+////		    }
+////		    ql_tap_state.state = TD_NONE;
+////		}
+//
+//		// Associate our tap dance key with its functionality
+//		qk_tap_dance_action_t tap_dance_actions[] = {
+//		    [COLEMAK_LAYR] = ACTION_TAP_DANCE_FN_ADVANCED_TIME(NULL, ql_finished, ql_reset, 275)
+//		};
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 // This globally defines all key overrides to be used
 const key_override_t **key_overrides = (const key_override_t *[]){
-    &delete_key_override,
+//     &delete_key_override,
+
+//		&shifts_capslock,
     
-    &L_bracket_override,
-    &R_bracket_override,
+//     &L_bracket_override,
+//     &R_bracket_override,
     
-    &alt_key_override1,
-    &alt_key_override2,
-    &alt_key_override3,
-    &alt_key_override4,
-    &alt_key_override5,
-    &alt_key_override6,
-    &alt_key_override7,
-    &alt_key_override8,
-    &alt_key_override9,
+//     &alt_key_override1,
+//     &alt_key_override2,
+//     &alt_key_override3,
+//     &alt_key_override4,
+//     &alt_key_override5,
+//     &alt_key_override6,
+//     &alt_key_override7,
+//     &alt_key_override8,
+//     &alt_key_override9,
  
     
     NULL // Null terminate the array of overrides!
@@ -68,22 +174,22 @@ const key_override_t **key_overrides = (const key_override_t *[]){
 
 
 // Tap Dance declarations
-enum {
-    TD_COLEMAK,
-};
+// enum {
+//     TD_COLEMAK,
+// };
 
 // Tap Dance definitions
-qk_tap_dance_action_t tap_dance_actions[] = {
+// qk_tap_dance_action_t tap_dance_actions[] = {
     // Tap once for Rctrl, twice for Colemak
-    [TD_COLEMAK] = ACTION_TAP_DANCE_DOUBLE(KC_RCTRL, *** GO TO LAYER),
-};
+//     [TD_COLEMAK] = ACTION_TAP_DANCE_DOUBLE(KC_RCTRL, *** GO TO LAYER),
+// };
 
 // Add tap dance item to your keymap in place of a keycode
-const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
+// const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // ...
-    TD(TD_COLEMAK)
+//     TD(TD_COLEMAK)
     // ...
-};
+// };
 
 
 
