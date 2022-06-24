@@ -24,7 +24,8 @@ MOUSEKEY_ENABLE = no       # Mouse keys
 
 
 # New additions
-DEBOUNCE_TYPE = asym_eager_defer_pk
+# DEBOUNCE_TYPE = asym_eager_defer_pk
+DEBOUNCE_TYPE = sym_eager_pk
 KEY_OVERRIDE_ENABLE = yes
 VIA_ENABLE = yes
 # Will change this later
