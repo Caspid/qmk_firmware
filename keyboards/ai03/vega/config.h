@@ -36,7 +36,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //#define MATRIX_HAS_GHOST
 
 /* Set 0 if debouncing isn't needed; 3 led to chatter; 5 had double spacebar? but then i swapped spacebar switch, so let's see */
-#define DEBOUNCE    5
+#define DEBOUNCE 5
 
 /* New additions */
 #define USB_POLLING_INTERVAL_MS 1 /* 1000 Hz polling rate */
